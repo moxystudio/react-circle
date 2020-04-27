@@ -1,7 +1,7 @@
 {
-  "name": "@moxy/react-lib-template",
-  "version": "0.0.0",
-  "description": "A template that aims to make the implementation of React component packages easier and more methodic.",
+  "name": "@moxy/react-circle",
+  "version": "1.0.0",
+  "description": "A React component to render a circle with a partially or fully drawn stroke.",
   "main": "lib/index.js",
   "module": "es/index.js",
   "files": [
@@ -9,18 +9,18 @@
     "es",
     "dist"
   ],
-  "homepage": "https://github.com/moxystudio/react-lib-template#readme",
-  "author": "Rui Monteiro <rui.monteiro@moxy.studio>",
+  "homepage": "https://github.com/moxystudio/react-circle#readme",
+  "author": "Gil Domingues <gil.domingues@moxy.studio>",
   "license": "MIT",
   "keywords": [
-    "template"
+    "circle"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/moxystudio/react-lib-template.git"
+    "url": "git+https://github.com/moxystudio/react-circle.git"
   },
   "bugs": {
-    "url": "https://github.com/moxystudio/react-lib-template/issues"
+    "url": "https://github.com/moxystudio/react-circle/issues"
   },
   "scripts": {
     "build:css": "rimraf dist && postcss src/styles/**/*.css --base src/styles --dir dist",

@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Circle Component should render correctly 1`] = `
+<DocumentFragment>
+  <svg
+    class="next-button_svg next-button_clockwise"
+  >
+    <circle
+      cx="0"
+      cy="0"
+      r="-1"
+      style="stroke-width: 1.5; stroke-dasharray: -6.283185307179586 0;"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`Circle Component should render correctly with direction both sides 1`] = `
+<DocumentFragment>
+  <svg
+    class="next-button_svg next-button_bothSides"
+  >
+    <circle
+      cx="0"
+      cy="0"
+      r="-1"
+      style="stroke-width: 1.5; stroke-dasharray: -6.283185307179586 0; transform: rotate(-180deg);"
+    />
+  </svg>
+</DocumentFragment>
+`;

@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -9,27 +9,24 @@ const DIRECTIONS = {
 };
 
 const getSvgClassName = (strokePercentage, direction, className) => classNames(
-    'next-button_svg',
-    `next-button_${direction}`,
+    'react-circle_svg',
+    `react-circle_${direction}`,
     {
-        'next-button_noStroke': strokePercentage === 0,
+        'react-circle_noStroke': strokePercentage === 0,
     },
     className,
 );
 
 const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransitionEnd }) => {
     const svgRef = useRef(null);
-    const [circleState, setCircleState] = useState({});
+    const [circleState, setCircleState] = useState();
     const [svgState, setSvgState] = useState({ className: getSvgClassName(strokePercentage, direction, className) });
-    const handleTransitionEnd = useCallback((event) => {
-        event.propertyName === 'stroke-dasharray' && onTransitionEnd && onTransitionEnd(event);
-    }, [onTransitionEnd]);
 
     useEffect(() => {
         const { clientWidth: svgSize } = svgRef.current;
 
         const center = svgSize / 2;
-        const radius = center - parseInt(strokeWidth, 10);
+        const radius = Math.max(center - parseInt(strokeWidth, 10), 0);
         const perimeter = 2 * Math.PI * radius;
         const rotate = (-strokePercentage * 180);
         const strokeLineSize = perimeter * strokePercentage;
@@ -37,13 +34,14 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
 
         const strokeDasharray = `${strokeLineSize} ${strokeGapSize}`;
 
-        const style = {
+        const circleStyle = {
             strokeWidth,
             strokeDasharray,
         };
+        const groupStyle = {};
 
         if (direction === DIRECTIONS.BOTH_SIDES) {
-            style.transform = `rotate(${rotate}deg)`;
+            groupStyle.transform = `rotate(${rotate}deg)`;
         }
 
         setCircleState({
@@ -54,7 +52,8 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
             strokeGapSize,
             strokeLineSize,
             strokeDasharray,
-            style,
+            circleStyle,
+            groupStyle,
         });
 
         setSvgState({ className: getSvgClassName(strokePercentage, direction, className) });
@@ -65,12 +64,14 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
             ref={ svgRef }
             className={ svgState.className }>
             { svgRef.current &&
-                <circle
-                    style={ circleState.style }
-                    cx={ circleState.center }
-                    cy={ circleState.center }
-                    r={ circleState.radius }
-                    onTransitionEnd={ handleTransitionEnd } />
+                <g style={ circleState.groupStyle }>
+                    <circle
+                        style={ circleState.circleStyle }
+                        cx={ circleState.center }
+                        cy={ circleState.center }
+                        r={ circleState.radius }
+                        onTransitionEnd={ onTransitionEnd } />
+                </g>
             }
         </svg>
     );
@@ -88,7 +89,6 @@ Circle.defaultProps = {
     direction: DIRECTIONS.CLOCKWISE,
     strokeWidth: 1.5,
     strokePercentage: 1,
-    onTransitionEnd: /* istanbul ignore next */ () => {},
 };
 
 export default Circle;

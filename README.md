@@ -14,7 +14,7 @@
 [david-dm-dev-url]:https://david-dm.org/moxystudio/react-circle?type=dev
 [david-dm-dev-image]:https://img.shields.io/david/dev/moxystudio/react-circle.svg
 
-{package-description}
+A React component to render a circle with a partially or fully drawn stroke.
 
 ## Installation
 
@@ -69,7 +69,7 @@ direction: PropTypes.oneOf([
     'clockwise',
     'antiClockwise',
     'bothSides',
-]).isRequired,
+]),
 ```
 
 ### onTransitionEnd

@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from '@testing-library/react';
 import Circle from '../src/Circle';
 
-const renderWithProps = (props = {}) => render(<Circle { ...props } />);
+const renderWithProps = (props = {}, options) => render(<Circle { ...props } />, options);
 
 describe('Circle Component', () => {
     it('should render correctly', () => {

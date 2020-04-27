@@ -3,14 +3,16 @@
 exports[`Circle Component should render correctly 1`] = `
 <DocumentFragment>
   <svg
-    class="next-button_svg next-button_clockwise"
+    class="react-circle_svg react-circle_clockwise"
   >
-    <circle
-      cx="0"
-      cy="0"
-      r="-1"
-      style="stroke-width: 1.5; stroke-dasharray: -6.283185307179586 0;"
-    />
+    <g>
+      <circle
+        cx="0"
+        cy="0"
+        r="0"
+        style="stroke-width: 1.5; stroke-dasharray: 0 0;"
+      />
+    </g>
   </svg>
 </DocumentFragment>
 `;
@@ -18,14 +20,18 @@ exports[`Circle Component should render correctly 1`] = `
 exports[`Circle Component should render correctly with direction both sides 1`] = `
 <DocumentFragment>
   <svg
-    class="next-button_svg next-button_bothSides"
+    class="react-circle_svg react-circle_bothSides"
   >
-    <circle
-      cx="0"
-      cy="0"
-      r="-1"
-      style="stroke-width: 1.5; stroke-dasharray: -6.283185307179586 0; transform: rotate(-180deg);"
-    />
+    <g
+      style="transform: rotate(-180deg);"
+    >
+      <circle
+        cx="0"
+        cy="0"
+        r="0"
+        style="stroke-width: 1.5; stroke-dasharray: 0 0;"
+      />
+    </g>
   </svg>
 </DocumentFragment>
 `;

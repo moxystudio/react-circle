@@ -7,7 +7,7 @@ const Home = () => {
     const [percentage, setPercentage] = useState(0.3);
     const [counter, setCounter] = useState(0);
     const buttonCallback = useCallback(() => {
-        setPercentage(percentage === 0.3 ? 0.7 : 0.3);
+        setPercentage(percentage === 0.3 ? 1 : 0.3);
     }, [percentage]);
     const transitionCallback = useCallback(() => {
         setCounter(counter + 1);

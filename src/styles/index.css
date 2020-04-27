@@ -19,7 +19,8 @@
         opacity: 1;
         transition:
             stroke-dasharray var(--circle-transition-duration) ease,
-            opacity 0s linear var(--circle-transition-duration);
+            opacity 0s linear var(--circle-transition-duration),
+            transform var(--circle-transition-duration) ease;
         fill: var(--fill);
         stroke: #000;
     }

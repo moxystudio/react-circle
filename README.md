@@ -1,8 +1,3 @@
--------
-### ⚠️  PLEASE READ THE [INSTRUCTIONS](/INSTRUCTIONS.md) FOR GUIDELINES ON HOW TO START YOUR PACKAGE.
-> Don't forget to remove this warning while updating this README.
--------
-
 # react-circle
 
 [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url] [![Build Status][build-status-image]][build-status-url] [![Coverage Status][codecov-image]][codecov-url] [![Dependency status][david-dm-image]][david-dm-url] [![Dev Dependency status][david-dm-dev-image]][david-dm-dev-url]
@@ -41,14 +36,14 @@ import Circle from '@moxy/react-circle';
 
 const MyComponent = () => (
     <div>
-        <Circle strokeWidth="2" strokePercentage="0.7" direction="clockwise" />
+        <Circle strokeWidth={ 2 } strokePercentage={ 0.7 } direction="clockwise" />
     <div>
 );
 ```
 
 ## API
 
-The following props are available to costumize `react-circle`'s behavior.
+The following props are available to customize `react-circle`'s behavior.
 
 #### strokeWidth
 
@@ -88,6 +83,22 @@ A function that will be called when a transition between two circle contour leng
 Type: `string` | Required: `false`
 
 A className to apply to the component.
+
+## Styles
+
+To import a stylesheet, one can import it on the project's entry CSS file:
+
+```css
+/* src/index.css */
+@import "@moxy/react-circle/dist/index.css";
+```
+
+...or in the project's entry JavaScript file:
+
+```js
+/* src/index.js */
+import "@moxy/react-circle/dist/index.css";
+```
 
 ## Tests
 

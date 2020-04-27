@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -21,6 +21,9 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
     const svgRef = useRef(null);
     const [circleState, setCircleState] = useState({});
     const [svgState, setSvgState] = useState({ className: getSvgClassName(strokePercentage, direction, className) });
+    const handleTransitionEnd = useCallback((event) => {
+        event.propertyName === 'stroke-dasharray' && onTransitionEnd && onTransitionEnd(event);
+    }, [onTransitionEnd]);
 
     useEffect(() => {
         const { clientWidth: svgSize } = svgRef.current;
@@ -29,8 +32,8 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
         const radius = center - parseInt(strokeWidth, 10);
         const perimeter = 2 * Math.PI * radius;
         const rotate = (-strokePercentage * 180);
-        const strokeGapSize = perimeter * (1 - strokePercentage);
-        const strokeLineSize = perimeter - strokeGapSize;
+        const strokeLineSize = perimeter * strokePercentage;
+        const strokeGapSize = perimeter - strokeLineSize;
 
         const strokeDasharray = `${strokeLineSize} ${strokeGapSize}`;
 
@@ -67,7 +70,7 @@ const Circle = ({ className, direction, strokeWidth, strokePercentage, onTransit
                     cx={ circleState.center }
                     cy={ circleState.center }
                     r={ circleState.radius }
-                    onTransitionEnd={ onTransitionEnd } />
+                    onTransitionEnd={ handleTransitionEnd } />
             }
         </svg>
     );

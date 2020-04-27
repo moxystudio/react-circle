@@ -1,5 +1,10 @@
 .home {
     & .circle {
-        border: 1px solid red;
+        display: block;
+        margin-top: 20px;
+
+        & + div {
+            margin-top: 20px;
+        }
     }
 }

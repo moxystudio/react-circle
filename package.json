@@ -1,6 +1,6 @@
 {
   "name": "@moxy/react-circle",
-  "version": "0.0.0",
+  "version": " 1.0.0",
   "description": "A React component to render a circle with a partially or fully drawn stroke.",
   "main": "lib/index.js",
   "module": "es/index.js",

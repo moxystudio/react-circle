@@ -41,6 +41,20 @@ const MyComponent = () => (
 );
 ```
 
+To import a stylesheet, one can import it on the project's entry CSS file:
+
+```css
+/* src/index.css */
+@import "@moxy/react-circle/dist/index.css";
+```
+
+...or in the project's entry JavaScript file:
+
+```js
+/* src/index.js */
+import "@moxy/react-circle/dist/index.css";
+```
+
 ## API
 
 The following props are available to customize `react-circle`'s behavior.
@@ -78,27 +92,11 @@ Type: `function` | Required: `false`
 
 A function that will be called when a transition between two circle contour lengths finishes.
 
-#### classNames
+#### className
 
 Type: `string` | Required: `false`
 
 A className to apply to the component.
-
-## Styles
-
-To import a stylesheet, one can import it on the project's entry CSS file:
-
-```css
-/* src/index.css */
-@import "@moxy/react-circle/dist/index.css";
-```
-
-...or in the project's entry JavaScript file:
-
-```js
-/* src/index.js */
-import "@moxy/react-circle/dist/index.css";
-```
 
 ## Tests
 

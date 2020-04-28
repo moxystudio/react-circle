@@ -11,9 +11,6 @@ const DIRECTIONS = {
 const getSvgClassName = (strokePercentage, direction, className) => classNames(
     'react-circle_svg',
     `react-circle_${direction}`,
-    {
-        'react-circle_noStroke': strokePercentage === 0,
-    },
     className,
 );
 

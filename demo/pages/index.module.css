@@ -1,5 +1,10 @@
 .home {
-    & .newComponent {
-        border: 1px solid red;
+    & .circle {
+        display: block;
+        margin-top: 20px;
+
+        & + div {
+            margin-top: 20px;
+        }
     }
 }
